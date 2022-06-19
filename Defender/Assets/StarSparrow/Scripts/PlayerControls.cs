@@ -12,10 +12,22 @@ public class PlayerControls : MonoBehaviour
     {
         
     }
+    void OnEnable() 
+    {
+        movement.Enable();
+    }
 
+     void OnDisable() 
+    {
+        movement.Disable();
+    }
     // Update is called once per frame
     void Update()
     {
+        float horizontalThrow = movement.ReadValue<Vector2>().x;
+        float verticalThrow = movement.ReadValue<Vector2>().y;
+        Debug.Log(horizontalThrow);
+        Debug.Log(verticalThrow);
         // float horizontalThrow = Input.GetAxis("Horizontal");
         // Debug.Log("Horizontal");
         // float verticalThrow = Input.GetAxis("Vertical");
